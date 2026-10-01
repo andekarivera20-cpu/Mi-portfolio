@@ -2089,3 +2089,311 @@ footer {
     }
 
 }
+
+/* ==========================================================
+   PORTFOLIO 2026 · PROYECTOS ACTUALES
+========================================================== */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.portfolio-card {
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    background: #0d1117;
+    transition:
+        transform var(--transicion),
+        border-color var(--transicion),
+        box-shadow var(--transicion);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(124, 255, 178, 0.28);
+    box-shadow: 0 24px 65px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio-card-destacado {
+    grid-column: span 1;
+}
+
+.portfolio-card-visual {
+    position: relative;
+    min-height: 315px;
+    padding: 42px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.portfolio-card-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.25), transparent 55%),
+        radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.08), transparent 30%);
+}
+
+.portfolio-card-visual small {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: 0.65;
+}
+
+.portfolio-card-visual h3 {
+    font-size: clamp(42px, 5vw, 70px);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -4px;
+}
+
+.portfolio-card-visual p {
+    margin-top: 22px;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    opacity: 0.6;
+}
+
+.portfolio-indice {
+    position: absolute;
+    top: 24px;
+    left: 26px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    opacity: 0.35;
+}
+
+.portfolio-estado {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    padding: 7px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(5, 8, 12, 0.35);
+    backdrop-filter: blur(10px);
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+.portfolio-estado.publicado {
+    color: var(--acento);
+}
+
+.portfolio-estado.desarrollo {
+    color: #f4cc75;
+}
+
+.portfolio-card-contenido {
+    padding: 34px;
+}
+
+.portfolio-card-contenido h3 {
+    margin-bottom: 17px;
+    font-size: clamp(30px, 3.2vw, 46px);
+    font-weight: 400;
+    letter-spacing: -2px;
+}
+
+.portfolio-card-contenido > p {
+    min-height: 100px;
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.portfolio-card-contenido .proyecto-stack {
+    margin-top: 26px;
+}
+
+.portfolio-card-contenido .proyecto-acciones {
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.visual-precio {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(97, 255, 169, 0.24), transparent 32%),
+        linear-gradient(135deg, #0a2118, #113c2d);
+}
+
+.visual-lanmap {
+    background:
+        radial-gradient(circle at 75% 20%, rgba(106, 164, 255, 0.25), transparent 34%),
+        linear-gradient(135deg, #091525, #153859);
+}
+
+.visual-industria {
+    background:
+        radial-gradient(circle at 82% 20%, rgba(91, 232, 255, 0.18), transparent 34%),
+        linear-gradient(135deg, #0b171b, #15313a);
+}
+
+.visual-recordacita {
+    background:
+        radial-gradient(circle at 80% 18%, rgba(187, 126, 255, 0.2), transparent 35%),
+        linear-gradient(135deg, #171022, #37214b);
+}
+
+.visual-manager {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(94, 225, 138, 0.22), transparent 32%),
+        linear-gradient(135deg, #07110d, #14341f);
+}
+
+.visual-roadtrip {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(255, 181, 93, 0.2), transparent 32%),
+        linear-gradient(135deg, #19130c, #45301b);
+}
+
+.proyectos-secundarios {
+    margin-top: 90px;
+    padding-top: 55px;
+    border-top: 1px solid var(--borde);
+}
+
+.proyectos-secundarios-cabecera {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 45px;
+    margin-bottom: 32px;
+}
+
+.proyectos-secundarios-cabecera > span {
+    color: var(--acento);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+
+.proyectos-secundarios-cabecera p {
+    max-width: 600px;
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.mini-proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.mini-proyecto {
+    min-height: 250px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--borde);
+    background: rgba(255, 255, 255, 0.018);
+    transition:
+        border-color var(--transicion),
+        background var(--transicion),
+        transform var(--transicion);
+}
+
+.mini-proyecto:hover {
+    transform: translateY(-3px);
+    border-color: var(--acento-borde);
+    background: rgba(124, 255, 178, 0.025);
+}
+
+.mini-proyecto > span {
+    color: var(--acento);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+}
+
+.mini-proyecto h3 {
+    margin: 18px 0 14px;
+    font-size: 31px;
+    font-weight: 400;
+    letter-spacing: -1.7px;
+}
+
+.mini-proyecto p {
+    flex: 1;
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.mini-proyecto > div {
+    display: flex;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.mini-proyecto a {
+    color: var(--gris-claro);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.mini-proyecto a:hover {
+    color: var(--acento);
+}
+
+@media (max-width: 900px) {
+    .portfolio-grid,
+    .mini-proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-card-visual {
+        min-height: 280px;
+        padding: 32px;
+    }
+
+    .portfolio-card-contenido > p {
+        min-height: auto;
+    }
+
+    .proyectos-secundarios-cabecera {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    .portfolio-card-visual {
+        min-height: 245px;
+        padding: 26px;
+    }
+
+    .portfolio-card-visual h3 {
+        font-size: 42px;
+        letter-spacing: -3px;
+    }
+
+    .portfolio-card-contenido {
+        padding: 26px;
+    }
+
+    .portfolio-card-contenido .proyecto-acciones {
+        display: grid;
+    }
+
+    .portfolio-card-contenido .boton-proyecto,
+    .portfolio-card-contenido .boton-codigo {
+        width: 100%;
+    }
+
+    .mini-proyecto {
+        min-height: 220px;
+        padding: 25px;
+    }
+}
