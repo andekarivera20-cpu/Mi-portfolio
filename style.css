@@ -2856,3 +2856,26 @@ footer {
         text-align: center;
     }
 }
+
+
+/* TRADETOOLS DESTACADO */
+.trade-feature {
+    grid-column: 1 / -1;
+    min-height: 235px;
+}
+
+.trade-feature .compact-project-body {
+    max-width: 980px;
+}
+
+.visual-tradetools {
+    background:
+        radial-gradient(circle at 82% 18%, rgba(213, 255, 88, 0.18), transparent 30%),
+        linear-gradient(135deg, #11170f, #26351f);
+}
+
+@media (max-width: 900px) {
+    .trade-feature {
+        grid-column: auto;
+    }
+}
