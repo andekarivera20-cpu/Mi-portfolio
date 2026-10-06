@@ -2569,7 +2569,7 @@ footer {
 
 .demo-row {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -2877,5 +2877,12 @@ footer {
 @media (max-width: 900px) {
     .trade-feature {
         grid-column: auto;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .demo-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
