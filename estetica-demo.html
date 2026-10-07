@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Demo comercial para centro de estética: tratamientos, precios, equipo y reserva de citas.">
+<title>AURA Beauty Studio | Estética y bienestar</title>
+<style>
+:root{
+  --bg:#f8f3f0;
+  --paper:#fffdfb;
+  --ink:#2c2522;
+  --muted:#786d68;
+  --rose:#b97872;
+  --rose-dark:#8f5752;
+  --soft:#f1dfda;
+  --sage:#dce5de;
+  --line:#eadfda;
+  --dark:#2e2725;
+  --shadow:0 20px 55px rgba(72,48,41,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.demo-pill{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:999;background:#2e2725;color:white;padding:8px 12px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+header{position:sticky;top:0;z-index:100;background:rgba(248,243,240,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{width:min(1180px,calc(100% - 32px));height:78px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900}
+.brandmark{width:42px;height:42px;border-radius:50% 50% 45% 55%;display:grid;place-items:center;background:var(--soft);color:var(--rose-dark);font-size:18px}
+.brandname{font-family:Georgia,serif;font-size:22px;letter-spacing:.02em}
+.brandname small{display:block;font-family:Inter,system-ui,sans-serif;font-size:8px;letter-spacing:.18em;color:var(--muted);margin-top:4px}
+.links{display:flex;align-items:center;gap:22px;font-size:13px;font-weight:700}
+.links a:hover{color:var(--rose-dark)}
+.book{padding:11px 16px;border-radius:999px;background:var(--rose);color:#fff}
+.mobile-actions{display:none;align-items:center;gap:8px}
+.mobile-book{padding:10px 12px;border-radius:999px;background:var(--rose);color:#fff;font-size:11px;font-weight:800}
+.menu-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font-size:20px}
+.mobile-menu{display:none;position:absolute;top:78px;left:16px;right:16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.mobile-menu.open{display:grid}
+.mobile-menu a{padding:15px 16px;border-bottom:1px solid var(--line);font-weight:800;font-size:14px}
+.mobile-menu a:last-child{border:0}
+.hero{width:min(1180px,calc(100% - 32px));margin:28px auto 0;display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+.hero-copy,.hero-visual{border:1px solid var(--line);border-radius:34px;background:var(--paper);box-shadow:var(--shadow)}
+.hero-copy{padding:62px 48px;display:flex;flex-direction:column;justify-content:center;min-height:560px}
+.kicker{display:inline-flex;align-items:center;gap:9px;width:max-content;color:var(--rose-dark);font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.kicker:before{content:"";width:26px;height:1px;background:var(--rose)}
+h1{font-family:Georgia,serif;font-size:clamp(52px,7vw,88px);font-weight:500;line-height:.92;letter-spacing:-.045em;margin:19px 0}
+.hero-copy p{max-width:600px;color:var(--muted);font-size:16px;line-height:1.8}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;justify-content:center;align-items:center;padding:14px 19px;border-radius:999px;font-size:13px;font-weight:900;border:1px solid transparent}
+.btn-main{background:var(--rose);color:#fff}
+.btn-alt{background:#fff;border-color:var(--line)}
+.hero-visual{padding:24px;position:relative;overflow:hidden;background:
+radial-gradient(circle at 25% 20%,rgba(185,120,114,.20),transparent 33%),
+radial-gradient(circle at 80% 75%,rgba(220,229,222,.80),transparent 34%),
+#fffdfb}
+.beauty-scene{min-height:360px;border-radius:26px;background:
+linear-gradient(145deg,rgba(255,255,255,.18),rgba(46,39,37,.05)),
+url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=82") center/cover no-repeat}
+.hero-note{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
+.note{padding:16px;background:var(--soft);border-radius:18px}
+.note:nth-child(2){background:var(--sage)}
+.note small{display:block;font-size:9px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.note strong{display:block;margin-top:8px;font-size:15px;line-height:1.35}
+.stats{width:min(1080px,calc(100% - 48px));margin:-18px auto 0;position:relative;z-index:2;background:var(--dark);color:#fff;border-radius:22px;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden;box-shadow:0 22px 55px rgba(46,39,37,.18)}
+.stat{padding:22px 24px;border-right:1px solid rgba(255,255,255,.12)}
+.stat:last-child{border:0}
+.stat small{display:block;color:#d9c7c2;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.stat strong{display:block;font-family:Georgia,serif;font-size:21px;font-weight:500;margin-top:6px}
+section{padding:92px 16px}
+.wrap{width:min(1180px,100%);margin:auto}
+.section-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:end;margin-bottom:36px}
+.section-head h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,68px);font-weight:500;line-height:.96;letter-spacing:-.035em;margin:10px 0 0}
+.section-head p{color:var(--muted);line-height:1.8;margin:0;max-width:650px}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.service{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow);min-height:235px}
+.service .icon{width:50px;height:50px;border-radius:16px;background:var(--soft);display:grid;place-items:center;font-size:23px}
+.service h3{font-size:21px;margin:28px 0 9px}
+.service p{font-size:13px;line-height:1.65;color:var(--muted);margin:0}
+.price{display:inline-block;margin-top:16px;color:var(--rose-dark);font-size:12px;font-weight:900}
+.highlight{background:var(--dark);color:#fff}
+.highlight .kicker{color:#e5b9b4}
+.highlight .kicker:before{background:#e5b9b4}
+.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+.highlight h2{font-family:Georgia,serif;font-size:clamp(42px,5vw,70px);font-weight:500;line-height:.96;letter-spacing:-.04em;margin:12px 0 18px}
+.highlight p{color:#d9ceca;line-height:1.8}
+.ticks{display:grid;gap:12px;margin:25px 0}
+.tick{display:flex;gap:11px;align-items:flex-start}
+.tick b{color:#e8b8b2}
+.booking-card{background:#fff;color:var(--ink);padding:26px;border-radius:28px;box-shadow:0 28px 70px rgba(0,0,0,.2)}
+.slot{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:13px;border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:10px}
+.avatar{width:52px;height:52px;border-radius:16px;background:var(--soft);display:grid;place-items:center;font-size:22px}
+.slot small{display:block;color:var(--muted);margin-top:4px}
+.status{font-size:10px;font-weight:900;padding:7px 9px;border-radius:999px;background:#edf4ef;color:#58705e}
+.gallery{display:grid;grid-template-columns:1.1fr .9fr .9fr;gap:14px}
+.gallery-card{min-height:310px;border-radius:26px;border:1px solid var(--line);overflow:hidden;background:#eee center/cover no-repeat;box-shadow:var(--shadow)}
+.gallery-card:nth-child(1){background-image:url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=82")}
+.gallery-card:nth-child(2){background-image:url("https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1200&q=82")}
+.gallery-card:nth-child(3){background-image:url("https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1200&q=82")}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.review{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+.stars{color:#bd8a4f;letter-spacing:.12em}
+.review p{color:var(--muted);line-height:1.7;min-height:100px}
+.review strong{font-size:14px}
+.contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px}
+.contact-card,.form-card{border:1px solid var(--line);border-radius:28px;padding:30px;background:#fcfaf9;box-shadow:var(--shadow)}
+.contact-card h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,64px);font-weight:500;line-height:.96;margin:12px 0 18px}
+.contact-card p{color:var(--muted);line-height:1.75}
+.info-list{display:grid;gap:14px;margin-top:26px}
+.info{padding-bottom:14px;border-bottom:1px solid var(--line)}
+.info small{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.info strong{display:block;margin-top:5px;font-size:15px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;font-weight:900}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;color:var(--ink);outline:none}
+.field textarea{min-height:110px;resize:vertical}
+.note-form{grid-column:1/-1;font-size:11px;color:var(--muted)}
+.submit{grid-column:1/-1;border:0;border-radius:16px;padding:14px;background:var(--rose);color:#fff;font-weight:900;cursor:pointer}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:var(--dark);color:#fff;padding:12px 16px;border-radius:12px;font-size:12px;font-weight:800;transition:.2s;z-index:1000}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{padding:28px 16px;background:#efe7e3;color:var(--muted);border-top:1px solid var(--line)}
+.footer{width:min(1180px,100%);margin:auto;display:flex;justify-content:space-between;gap:20px;font-size:11px}
+@media(max-width:920px){
+  .links{display:none}.mobile-actions{display:flex}
+  .hero,.section-head,.app-grid,.contact-grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr}.gallery-card:first-child{grid-column:1/-1}
+  .reviews{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr;margin-top:16px}
+  .stat{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .stat:last-child{border-bottom:0}
+}
+@media(max-width:640px){
+  .hero{width:calc(100% - 20px);margin-top:18px}.hero-copy{padding:42px 22px;min-height:auto}.hero-visual{padding:17px}
+  h1{font-size:52px}.services,.gallery{grid-template-columns:1fr}.gallery-card:first-child{grid-column:auto}
+  .hero-note{grid-template-columns:1fr}.form{grid-template-columns:1fr}.field.full,.note-form,.submit{grid-column:auto}
+  section{padding:74px 16px}.footer{flex-direction:column}.actions .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="demo-pill">Demo comercial · Centro de estética</div>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#inicio">
+      <span class="brandmark">✦</span>
+      <span class="brandname">AURA<small>BEAUTY STUDIO</small></span>
+    </a>
+    <div class="links">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#resultados">Galería</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#citas">Citas</a>
+      <a class="book" href="#contacto">Reservar</a>
+    </div>
+    <div class="mobile-actions">
+      <a class="mobile-book" href="#contacto">Reservar</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#resultados">Galería</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#citas">Citas</a>
+      <a href="#contacto">Reservar cita</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <span class="kicker">Belleza · cuidado · bienestar</span>
+    <h1>Tu momento. Tu piel. Tu mejor versión.</h1>
+    <p>Una propuesta moderna para centros de estética que quieren enseñar sus tratamientos, transmitir confianza y convertir visitas en reservas.</p>
+    <div class="actions">
+      <a class="btn btn-main" href="#contacto">Reservar cita ↗</a>
+      <a class="btn btn-alt" href="#tratamientos">Ver tratamientos ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="beauty-scene"></div>
+    <div class="hero-note">
+      <div class="note"><small>Especialidades</small><strong>Facial, uñas, pestañas y depilación</strong></div>
+      <div class="note"><small>Reserva sencilla</small><strong>Web + RecordaCita para organizar citas</strong></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><small>Reserva</small><strong>Online, WhatsApp o teléfono</strong></div>
+  <div class="stat"><small>Horario</small><strong>L–V 09:30–20:00 · S 10:00–14:00</strong></div>
+  <div class="stat"><small>Primera visita</small><strong>Asesoramiento personalizado</strong></div>
+</div>
+
+<section id="tratamientos">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker">Tratamientos</span><h2>Todo lo importante, explicado bonito y claro.</h2></div>
+      <p>Esta demo está pensada para que un centro pueda mostrar de forma muy visual qué ofrece, cuánto dura cada tratamiento y cómo reservar sin depender únicamente de Instagram.</p>
+    </div>
+    <div class="services">
+      <article class="service"><div class="icon">✨</div><h3>Limpieza facial</h3><p>Tratamiento facial profundo adaptado a cada tipo de piel para limpiar, hidratar y devolver luminosidad.</p><span class="price">Desde 45 €</span></article>
+      <article class="service"><div class="icon">💅</div><h3>Manicura & uñas</h3><p>Manicura semipermanente, refuerzo, nail art y tratamientos de cuidado para manos y uñas.</p><span class="price">Desde 22 €</span></article>
+      <article class="service"><div class="icon">👁️</div><h3>Pestañas & cejas</h3><p>Lifting, diseño de cejas y tratamientos pensados para realzar la mirada de forma natural.</p><span class="price">Desde 30 €</span></article>
+      <article class="service"><div class="icon">🌿</div><h3>Depilación</h3><p>Opciones de depilación facial y corporal con asesoramiento previo según zona y necesidades.</p><span class="price">Consultar zona</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="highlight" id="citas">
+  <div class="wrap app-grid">
+    <div>
+      <span class="kicker">Citas y recordatorios</span>
+      <h2>La web atrae. RecordaCita ayuda a organizar.</h2>
+      <p>Para centros que gestionan muchas reservas por WhatsApp, se puede combinar la web con una herramienta sencilla para tener las citas organizadas y preparar recordatorios.</p>
+      <div class="ticks">
+        <div class="tick"><b>✓</b><span>Agenda de citas más clara</span></div>
+        <div class="tick"><b>✓</b><span>Recordatorios para reducir olvidos</span></div>
+        <div class="tick"><b>✓</b><span>Datos básicos del cliente en un solo sitio</span></div>
+        <div class="tick"><b>✓</b><span>Una imagen más profesional que depender solo de redes</span></div>
+      </div>
+      <a class="btn btn-main" href="https://andekarivera20-cpu.github.io/Recordar-cita/" target="_blank" rel="noopener">Ver RecordaCita ↗</a>
+    </div>
+
+    <div class="booking-card">
+      <div class="slot"><div class="avatar">✨</div><div><strong>Lucía R.</strong><small>10:00 · Limpieza facial</small></div><span class="status">Confirmada</span></div>
+      <div class="slot"><div class="avatar">💅</div><div><strong>Marta P.</strong><small>12:30 · Manicura semipermanente</small></div><span class="status">Recordatorio</span></div>
+      <div class="slot"><div class="avatar">👁️</div><div><strong>Nerea G.</strong><small>17:15 · Lifting de pestañas</small></div><span class="status">Pendiente</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="resultados">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker">Espacio & resultados</span><h2>Una imagen que haga apetecible reservar.</h2></div>
+      <p>En una versión para un negocio real, esta galería se sustituiría por fotografías propias del centro, sus tratamientos y resultados reales.</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-card" role="img" aria-label="Tratamiento facial"></div>
+      <div class="gallery-card" role="img" aria-label="Manicura"></div>
+      <div class="gallery-card" role="img" aria-label="Cuidado de pestañas"></div>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker">Opiniones</span><h2>Confianza antes de la primera cita.</h2></div>
+      <p>Las reseñas pueden integrarse como apoyo para que nuevas clientas conozcan la experiencia de otras personas antes de reservar.</p>
+    </div>
+    <div class="reviews">
+      <article class="review"><div class="stars">★★★★★</div><p>“Trato increíble y un espacio precioso. Me explicaron todo antes de empezar y salí encantada.”</p><strong>Cliente · Demo</strong></article>
+      <article class="review"><div class="stars">★★★★★</div><p>“Reservar fue muy fácil y el recordatorio antes de la cita me vino genial.”</p><strong>Cliente · Demo</strong></article>
+      <article class="review"><div class="stars">★★★★★</div><p>“Muy profesionales. La manicura quedó perfecta y el resultado duró muchísimo.”</p><strong>Cliente · Demo</strong></article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-card">
+      <span class="kicker">Reserva</span>
+      <h2>Haz hueco para ti.</h2>
+      <p>En la web real, este bloque puede dirigir a WhatsApp, correo, teléfono o integrarse con el sistema de citas que utilice el centro.</p>
+      <div class="info-list">
+        <div class="info"><small>WhatsApp</small><strong>600 000 000</strong></div>
+        <div class="info"><small>Email</small><strong>hola@aurabeauty.es</strong></div>
+        <div class="info"><small>Ubicación</small><strong>Centro de la ciudad · España</strong></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <form class="form" id="demoForm">
+        <div class="field"><label>Nombre</label><input required placeholder="Tu nombre"></div>
+        <div class="field"><label>Teléfono</label><input required placeholder="Tu teléfono"></div>
+        <div class="field"><label>Tratamiento</label><select><option>Limpieza facial</option><option>Manicura / uñas</option><option>Pestañas / cejas</option><option>Depilación</option></select></div>
+        <div class="field"><label>Preferencia</label><select><option>Mañana</option><option>Tarde</option><option>Indiferente</option></select></div>
+        <div class="field full"><label>Comentario</label><textarea placeholder="¿Qué tratamiento te interesa?"></textarea></div>
+        <p class="note-form">Demo comercial: este formulario no envía información real.</p>
+        <button class="submit" type="submit">Solicitar cita</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer">
+    <span>AURA Beauty Studio · Demo comercial</span>
+    <span>Web demostrativa · Andeka Rivera</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" aria-live="polite">Demo: la solicitud no se ha enviado.</div>
+
+<script>
+const btn=document.getElementById("menuBtn");
+const menu=document.getElementById("mobileMenu");
+if(btn&&menu){
+  btn.addEventListener("click",()=>{
+    const open=menu.classList.toggle("open");
+    btn.textContent=open?"×":"☰";
+  });
+  menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+    menu.classList.remove("open");
+    btn.textContent="☰";
+  }));
+}
+const form=document.getElementById("demoForm");
+const toast=document.getElementById("toast");
+if(form&&toast){
+  form.addEventListener("submit",e=>{
+    e.preventDefault();
+    toast.classList.add("show");
+    setTimeout(()=>toast.classList.remove("show"),2200);
+  });
+}
+</script>
+</body>
+</html>
