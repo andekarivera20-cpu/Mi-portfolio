@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14242e">
+<meta name="description" content="NOVA Instalaciones y Reformas. Electricidad, fontanería, climatización, mantenimiento y reformas. Demo profesional con solicitud de presupuesto.">
+<title>NOVA | Instalaciones y Reformas</title>
+<link rel="preconnect" href="https://images.unsplash.com">
+<style>
+:root{--navy:#14242e;--navy2:#1c3542;--ink:#17272e;--muted:#64737a;--cream:#f5f5f2;--white:#fff;--line:#dbe1df;--orange:#e09b40;--orange2:#f1b866;--soft:#eef2f0;--r:22px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--cream);overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.container{width:min(1190px,calc(100% - 40px));margin:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:800;color:#b57623}
+.eyebrow:before{content:"";width:26px;height:2px;background:currentColor;display:block}
+.hero-top{background:var(--navy);color:#fff}
+.topbar{border-bottom:1px solid #33434a;color:#bfd0d2;font-size:11px;letter-spacing:.02em}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:14px}
+.topbar a{color:#f5be79}
+header{position:sticky;top:0;z-index:50;background:rgba(20,36,46,.97);backdrop-filter:blur(14px);color:#fff;border-bottom:1px solid #33434a}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-symbol{display:grid;place-items:center;width:44px;height:44px;background:var(--orange);color:var(--navy);font-weight:900;font-size:28px;clip-path:polygon(0 0,75% 0,100% 25%,100% 100%,25% 100%,0 75%)}
+.brand b{display:block;font-size:27px;letter-spacing:.10em;line-height:1}
+.brand small{display:block;margin-top:5px;font-size:9px;letter-spacing:.17em;color:#c0ced0;font-weight:600}
+.navlinks{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:650;color:#dae4e5}
+.navlinks a:hover{color:#f3be78}
+.navlinks .navcta{color:#10252c;background:var(--orange2);border-radius:4px;padding:14px 18px;font-weight:850}
+.menu-toggle{display:none;width:44px;height:44px;border:1px solid #526369;background:transparent;color:white;border-radius:7px;font-size:24px}
+.mobile-nav{display:none;background:#19303a;border-top:1px solid #34505a}
+.mobile-nav.open{display:grid}
+.mobile-nav a{padding:15px 20px;border-bottom:1px solid #35515b;font-size:14px;font-weight:700}
+.hero{min-height:638px;position:relative;overflow:hidden;background:#14242e}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(9,25,35,.98) 0%,rgba(11,28,38,.90) 40%,rgba(11,28,38,.15) 100%),url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85");background-position:center,center;background-size:cover}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:110px;background:linear-gradient(transparent,rgba(9,25,35,.30));pointer-events:none}
+.hero-content{position:relative;z-index:1;display:flex;min-height:638px;align-items:center;justify-content:space-between;gap:70px;padding:70px 0 100px}
+.hero-text{max-width:735px;color:white}
+.hero-text .eyebrow{color:#f0b66f}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(48px,7vw,95px);line-height:.99;letter-spacing:-.062em;margin:23px 0 23px;font-weight:850}
+h1 em{font-style:normal;color:#f1b566}
+.hero-text p{font-size:clamp(15px,1.4vw,18px);line-height:1.8;color:#d0d9da;max-width:600px;margin-bottom:29px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:49px;padding:15px 22px;border-radius:5px;font-size:13px;font-weight:800;border:1px solid transparent;transition:transform .16s ease,background-color .16s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-orange{background:var(--orange2);color:#14242e}
+.btn-ghost{border-color:#85969c;background:rgba(255,255,255,.05);color:#fff}
+.btn-dark{background:var(--navy);color:#fff}
+.hero-side{flex:0 0 220px;align-self:flex-end;margin-bottom:0;background:rgba(17,35,46,.82);border:1px solid #62757a;backdrop-filter:blur(9px);border-radius:10px;padding:24px 21px;color:#fff}
+.hero-side strong{font-size:25px;line-height:1.1;display:block;margin-bottom:14px}
+.hero-side p{color:#cad7d8;font-size:12px;line-height:1.65;margin-bottom:0}
+.hero-side .small-line{height:2px;width:33px;background:var(--orange2);margin-bottom:18px}
+.trust-band{position:relative;z-index:2;margin-top:-43px;background:var(--white);box-shadow:0 20px 45px rgba(21,39,45,.10);border:1px solid #e7ecea;border-radius:8px;display:grid;grid-template-columns:repeat(3,1fr)}
+.trust-item{display:flex;align-items:center;gap:16px;padding:25px 27px;border-right:1px solid var(--line)}
+.trust-item:last-child{border-right:none}
+.trust-icon{height:45px;width:45px;flex:none;display:grid;place-items:center;color:#996224;background:#fdf1df;border-radius:7px;font-size:22px}
+.trust-item b{font-size:14px;display:block;margin-bottom:5px}
+.trust-item span{display:block;font-size:12px;line-height:1.5;color:var(--muted)}
+section{padding:94px 0}
+.section-head{display:flex;justify-content:space-between;gap:55px;align-items:end;margin-bottom:36px}
+.section-head h2{max-width:640px;letter-spacing:-.045em;line-height:1.06;font-size:clamp(34px,4.8vw,61px);margin:15px 0 0;font-weight:850}
+.section-head>p{max-width:390px;font-size:14px;line-height:1.8;color:var(--muted);margin:0 0 5px}
+.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.service{background:white;border:1px solid var(--line);padding:27px 23px 25px;border-radius:9px;min-height:278px;display:flex;flex-direction:column;align-items:flex-start;transition:transform .2s,box-shadow .2s}
+.service:hover{transform:translateY(-4px);box-shadow:0 17px 35px rgba(22,44,52,.09)}
+.service-icon{display:grid;place-items:center;width:54px;height:54px;background:#edf1ee;border-radius:7px;font-size:25px;margin-bottom:30px}
+.service h3{font-size:21px;line-height:1.15;letter-spacing:-.025em;margin-bottom:11px}
+.service p{color:var(--muted);font-size:13px;line-height:1.75;margin-bottom:18px}
+.service a{margin-top:auto;font-size:12px;font-weight:800;color:#9d671f}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about{background:#ecf1ee}
+.about-image{min-height:475px;background:url("https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80") center/cover;border-radius:9px;position:relative}
+.about-image:after{content:"FOTOGRAFÍA ILUSTRATIVA";position:absolute;right:12px;bottom:12px;font-size:10px;letter-spacing:.11em;padding:9px 11px;background:rgba(20,36,46,.82);color:#fff;border-radius:3px}
+.about h2{font-size:clamp(35px,4.4vw,61px);line-height:1.07;letter-spacing:-.046em;margin:16px 0 24px}
+.about p{color:#546770;font-size:14px;line-height:1.9}
+.checks{padding:0;list-style:none;margin:27px 0 32px;display:grid;gap:12px}
+.checks li{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:650}
+.checks li:before{content:"✓";color:#a16b24;border:1px solid #dfbe89;border-radius:50%;height:22px;width:22px;flex-shrink:0;display:grid;place-items:center;font-weight:900}
+.portfolio{background:#fff}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filter{border:1px solid #d5dfdf;background:#fff;color:#516168;border-radius:4px;padding:12px 17px;font-size:12px;font-weight:800}
+.filter.active{background:var(--navy);border-color:var(--navy);color:white}
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.project{border-radius:9px;overflow:hidden;background:#f4f6f4;border:1px solid #e2e8e5}
+.project[hidden]{display:none}
+.project-img{height:258px;background-position:center;background-size:cover;background-color:#cdd8d5}
+.project:nth-child(1) .project-img{background-image:url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=950&q=80")}
+.project:nth-child(2) .project-img{background-image:url("https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=950&q=80")}
+.project:nth-child(3) .project-img{background-image:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=950&q=80")}
+.project:nth-child(4) .project-img{background-image:url("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=950&q=80")}
+.project:nth-child(5) .project-img{background-image:url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=950&q=80")}
+.project:nth-child(6) .project-img{background-image:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=950&q=80")}
+.project-body{padding:21px}
+.project-body small{font-size:10px;letter-spacing:.12em;font-weight:850;color:#ad7027;text-transform:uppercase}
+.project-body h3{font-size:18px;line-height:1.25;margin:10px 0}
+.project-body p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
+.photo-note{font-size:11px;color:#7b888b;margin:20px 0 0}
+.process{background:var(--navy);color:#fff}
+.process .eyebrow{color:var(--orange2)}
+.process .section-head>p{color:#b5c6c9}
+.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.step{padding:29px 23px;border:1px solid #455864;border-radius:8px;background:#203743}
+.step .num{font-size:46px;letter-spacing:-.06em;font-weight:850;color:#dbaa69;display:block;margin-bottom:28px}
+.step h3{font-size:19px;margin-bottom:10px}
+.step p{font-size:13px;line-height:1.75;color:#c0ced1;margin-bottom:0}
+.contact-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:20px;align-items:stretch}
+.contact-intro{background:#e9efeb;border:1px solid var(--line);padding:41px 34px;border-radius:9px}
+.contact-intro h2{font-size:clamp(35px,4.5vw,59px);line-height:1.07;letter-spacing:-.045em;margin:14px 0 19px}
+.contact-intro>p{font-size:14px;color:#5c6c72;line-height:1.85}
+.contact-item{padding:17px 0;border-bottom:1px solid #cdd8d2}
+.contact-item small{display:block;color:#81908a;font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:800}
+.contact-item b{display:block;font-size:16px;margin-top:6px}
+.contact-item .placeholder{color:#6c7b80;font-weight:500}
+.quote{background:#fff;border:1px solid var(--line);border-radius:9px;padding:34px}
+.quote h3{font-size:25px;margin-bottom:6px;letter-spacing:-.035em}
+.quote>p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:25px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{min-width:0;display:grid;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;font-weight:750}
+.field input,.field select,.field textarea{min-width:0;width:100%;background:#fafbfa;border:1px solid #cdd8d6;color:#162a32;font-size:16px;border-radius:5px;padding:14px 12px;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#b47a2a;box-shadow:0 0 0 3px #efd3aa80}
+.field textarea{min-height:120px;resize:vertical}
+.form-note{color:#65767a;font-size:11px;line-height:1.7;margin:17px 0}
+.submit{width:100%;padding:16px;background:var(--orange);color:#1b272c;font-weight:850;font-size:14px;border:0;border-radius:5px;min-height:50px}
+.message{display:none;background:#e6f3e8;border:1px solid #a3cdae;border-radius:5px;padding:17px;margin-top:18px;font-size:13px;line-height:1.7}
+.message.show{display:block}
+.business-tools{background:#e8efed;border-top:1px solid var(--line)}
+.tool-promo{display:flex;align-items:center;justify-content:space-between;gap:36px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:33px 40px}
+.tool-promo h2{font-size:clamp(25px,3vw,37px);letter-spacing:-.04em;margin:7px 0 9px}
+.tool-promo p{color:var(--muted);font-size:13px;line-height:1.75;margin:0;max-width:640px}
+footer{background:#101d26;color:#a8babe;padding:34px 0}
+.footer-row{display:flex;justify-content:space-between;gap:18px;align-items:center;font-size:12px;line-height:1.7}
+.demo-label{position:fixed;right:15px;bottom:15px;z-index:60;padding:9px 14px;font-size:10px;letter-spacing:.09em;border-radius:99px;background:#fff;box-shadow:0 6px 25px #1113;color:#33454e;font-weight:850;border:1px solid #d9e1df}
+@media(max-width:1050px){.navlinks{gap:14px}.services{grid-template-columns:repeat(2,1fr)}.hero-side{display:none}.project-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:730px){
+.container{width:calc(100% - 30px)}.topbar{display:none}.nav{height:70px}.brand b{font-size:23px}.brand small{font-size:8px}.navlinks{display:none}.menu-toggle{display:block}
+.hero,.hero-content{min-height:580px}.hero-content{padding:62px 0 88px}.hero-bg{background-image:linear-gradient(90deg,rgba(9,25,35,.94),rgba(11,28,38,.64)),url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1300&q=80")}
+h1{font-size:clamp(49px,10vw,72px)}.hero-text p{font-size:15px}
+.trust-band{margin-top:-30px;grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line);padding:19px 21px}.trust-item:last-child{border-bottom:0}
+section{padding:70px 0}.section-head{display:block}.section-head>p{margin-top:18px}
+.split,.contact-grid{grid-template-columns:1fr;gap:23px}.about-image{min-height:310px;order:2}.about .split>div:last-child{order:1}
+.project-grid{grid-template-columns:1fr}.project-img{height:260px}
+.tool-promo{display:block;padding:25px}.tool-promo .btn{margin-top:20px}
+.footer-row{display:block}.footer-row p{margin:8px 0}
+.demo-label{font-size:9px;bottom:9px;right:9px}
+}
+@media(max-width:480px){.services,.process-grid,.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.service{min-height:auto}.quote,.contact-intro{padding:25px 19px}.project-img{height:225px}.hero-actions .btn{flex:1 1 100%}.hero-content{padding-bottom:80px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.service,.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="hero-top">
+<div class="topbar"><div class="container"><span>Electricidad · Fontanería · Climatización · Reformas</span><a href="#presupuesto">Cuéntanos tu proyecto ↗</a></div></div>
+</div>
+<header>
+<div class="container nav">
+<a class="brand" href="#inicio" aria-label="NOVA Instalaciones, inicio"><span class="brand-symbol">N</span><span><b>NOVA</b><small>INSTALACIONES & REFORMAS</small></span></a>
+<nav class="navlinks" aria-label="Navegación principal"><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#trabajos">Trabajos</a><a href="#como-trabajamos">Cómo trabajamos</a><a class="navcta" href="#presupuesto">Solicitar presupuesto ↗</a></nav>
+<button class="menu-toggle" id="menuButton" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">☰</button>
+</div>
+<nav class="mobile-nav" id="mobileMenu" aria-label="Menú móvil">
+<a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#trabajos">Trabajos</a><a href="#como-trabajamos">Cómo trabajamos</a><a href="#presupuesto">Solicitar presupuesto</a>
+</nav>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="hero-bg" aria-hidden="true"></div>
+<div class="container hero-content">
+<div class="hero-text">
+<span class="eyebrow">Instalaciones · Mantenimiento · Reformas</span>
+<h1>Hacemos que<br>tu proyecto<br><em>funcione.</em></h1>
+<p>Soluciones en electricidad, fontanería, climatización y reformas. Atención cercana, explicaciones claras y un presupuesto adaptado a lo que necesitas.</p>
+<div class="hero-actions"><a class="btn btn-orange" href="#presupuesto">Pedir presupuesto ↗</a><a class="btn btn-ghost" href="#servicios">Descubrir servicios ↓</a></div>
+</div>
+<aside class="hero-side"><div class="small-line"></div><strong>De la primera idea al último detalle.</strong><p>Un solo lugar para consultar servicios, enseñar trabajos y solicitar información sin complicaciones.</p></aside>
+</div>
+</section>
+<div class="container">
+<div class="trust-band">
+<div class="trust-item"><span class="trust-icon">⚡</span><div><b>Soluciones integrales</b><span>Electricidad, agua, clima y reformas</span></div></div>
+<div class="trust-item"><span class="trust-icon">📋</span><div><b>Presupuestos claros</b><span>Información organizada desde el inicio</span></div></div>
+<div class="trust-item"><span class="trust-icon">🤝</span><div><b>Trato cercano</b><span>Un proyecto adaptado a cada necesidad</span></div></div>
+</div>
+</div>
+<section id="servicios">
+<div class="container">
+<div class="section-head"><div><span class="eyebrow">Qué hacemos</span><h2>Servicios para cada proyecto.</h2></div><p>Desde una avería puntual hasta una reforma de varias estancias. Aquí cada cliente encuentra rápidamente la solución que busca.</p></div>
+<div class="services">
+<article class="service"><div class="service-icon">⚡</div><h3>Electricidad</h3><p>Cuadros eléctricos, instalaciones, iluminación, averías y mejoras eléctricas en viviendas y negocios.</p><a href="#presupuesto" data-service="Electricidad">Solicitar presupuesto ↗</a></article>
+<article class="service"><div class="service-icon">🚰</div><h3>Fontanería</h3><p>Instalaciones de agua, reparaciones, fugas, baños, cocinas y mantenimiento de tuberías.</p><a href="#presupuesto" data-service="Fontanería">Solicitar presupuesto ↗</a></article>
+<article class="service"><div class="service-icon">❄️</div><h3>Climatización</h3><p>Aire acondicionado, ventilación, revisión de equipos y soluciones para mejorar el confort.</p><a href="#presupuesto" data-service="Climatización">Solicitar presupuesto ↗</a></article>
+<article class="service"><div class="service-icon">🛠️</div><h3>Reformas</h3><p>Reformas parciales e integrales, trabajos de albañilería y coordinación de pequeñas obras.</p><a href="#presupuesto" data-service="Reformas">Solicitar presupuesto ↗</a></article>
+</div>
+</div>
+</section>
+<section class="about" id="nosotros">
+<div class="container split">
+<div class="about-image" role="img" aria-label="Imagen ilustrativa de trabajo técnico"></div>
+<div>
+<span class="eyebrow">Una forma de trabajar</span>
+<h2>Profesionalidad sin complicaciones.</h2>
+<p>Sabemos lo importante que es encontrar una empresa que explique bien cada paso. Por eso planteamos una experiencia sencilla: cuéntanos qué necesitas, revisamos tu proyecto y te proponemos una solución.</p>
+<ul class="checks"><li>Servicios explicados con claridad</li><li>Información del proyecto desde el principio</li><li>Contacto rápido y atención personalizada</li><li>Trabajos presentados de forma visual</li></ul>
+<a href="#presupuesto" class="btn btn-dark">Cuéntanos tu idea ↗</a>
+</div>
+</div>
+</section>
+<section class="portfolio" id="trabajos">
+<div class="container">
+<div class="section-head"><div><span class="eyebrow">Galería de ejemplo</span><h2>El trabajo habla por sí solo.</h2></div><p>Una muestra del tipo de proyectos que esta web puede presentar. Al personalizarla se sustituirían estas fotos por trabajos reales de la empresa.</p></div>
+<div class="filters" role="group" aria-label="Filtrar galería">
+<button type="button" class="filter active" data-filter="todos" aria-pressed="true">Todos los trabajos</button>
+<button type="button" class="filter" data-filter="electricidad" aria-pressed="false">Electricidad</button>
+<button type="button" class="filter" data-filter="instalaciones" aria-pressed="false">Instalaciones</button>
+<button type="button" class="filter" data-filter="reformas" aria-pressed="false">Reformas</button>
+</div>
+<div class="project-grid">
+<article class="project" data-category="electricidad"><div class="project-img" role="img" aria-label="Instalaciones eléctricas ilustrativas"></div><div class="project-body"><small>Electricidad</small><h3>Instalaciones y cuadros</h3><p>Galería demostrativa para enseñar trabajos eléctricos.</p></div></article>
+<article class="project" data-category="instalaciones"><div class="project-img" role="img" aria-label="Técnico realizando una instalación"></div><div class="project-body"><small>Instalaciones</small><h3>Trabajo técnico y mantenimiento</h3><p>Espacio para mostrar montajes y actuaciones de mantenimiento.</p></div></article>
+<article class="project" data-category="reformas"><div class="project-img" role="img" aria-label="Obra y reformas ilustrativas"></div><div class="project-body"><small>Reformas</small><h3>Reforma y rehabilitación</h3><p>Una ficha atractiva para cada trabajo terminado.</p></div></article>
+<article class="project" data-category="instalaciones"><div class="project-img" role="img" aria-label="Baño con instalaciones de agua"></div><div class="project-body"><small>Instalaciones</small><h3>Baños y fontanería</h3><p>Fotografías de resultados y detalles del servicio.</p></div></article>
+<article class="project" data-category="reformas"><div class="project-img" role="img" aria-label="Interior reformado"></div><div class="project-body"><small>Reformas</small><h3>Interiorismo y acabados</h3><p>Propuestas de mejoras para hogares y locales.</p></div></article>
+<article class="project" data-category="reformas"><div class="project-img" role="img" aria-label="Vivienda reformada"></div><div class="project-body"><small>Reformas</small><h3>Reforma integral</h3><p>Una forma clara de organizar fotografías por proyecto.</p></div></article>
+</div>
+<p class="photo-note">Las imágenes y descripciones de esta galería son ilustrativas. No representan obras reales de NOVA.</p>
+</div>
+</section>
+<section class="process" id="como-trabajamos">
+<div class="container">
+<div class="section-head"><div><span class="eyebrow">Proceso sencillo</span><h2>Así empieza un buen proyecto.</h2></div><p>Cuatro pasos para que el cliente sepa qué esperar desde el primer contacto hasta el final.</p></div>
+<div class="process-grid">
+<div class="step"><span class="num">01</span><h3>Cuéntanos qué necesitas</h3><p>Nos explicas el servicio, la zona y los detalles de tu proyecto.</p></div>
+<div class="step"><span class="num">02</span><h3>Revisamos la idea</h3><p>Valoramos las necesidades y la información necesaria.</p></div>
+<div class="step"><span class="num">03</span><h3>Preparamos propuesta</h3><p>Concretamos el alcance del trabajo y el presupuesto.</p></div>
+<div class="step"><span class="num">04</span><h3>Planificamos el trabajo</h3><p>Acordamos los siguientes pasos y la ejecución.</p></div>
+</div>
+</div>
+</section>
+<section id="presupuesto">
+<div class="container">
+<div class="section-head"><div><span class="eyebrow">Presupuestos</span><h2>¿Qué necesitas hacer?</h2></div><p>Una solicitud rápida desde cualquier dispositivo. En la versión definitiva se conectaría al correo o al sistema de gestión de la empresa.</p></div>
+<div class="contact-grid">
+<div class="contact-intro">
+<span class="eyebrow">Hablemos</span><h2>Tu próximo proyecto empieza aquí.</h2>
+<p>¿Una avería? ¿Un montaje nuevo? ¿Una reforma? Déjanos la información básica para preparar una primera valoración.</p>
+<div class="contact-item"><small>Atención</small><b>Por teléfono, email o WhatsApp</b></div>
+<div class="contact-item"><small>Horario de ejemplo</small><b>Lunes a viernes · 08:00–19:00</b></div>
+<div class="contact-item"><small>Contacto</small><b class="placeholder">Datos reales al personalizar la web</b></div>
+</div>
+<form id="quoteForm" class="quote">
+<h3>Solicita tu presupuesto</h3>
+<p>Completa los datos de ejemplo para probar cómo funcionaría el formulario.</p>
+<div class="fields">
+<div class="field"><label for="qname">Nombre *</label><input id="qname" name="nombre" placeholder="Tu nombre" required autocomplete="name"></div>
+<div class="field"><label for="qphone">Teléfono *</label><input id="qphone" name="telefono" type="tel" placeholder="Tu teléfono" required autocomplete="tel"></div>
+<div class="field"><label for="qservice">Servicio *</label><select id="qservice" name="servicio" required><option value="">Selecciona un servicio</option><option>Electricidad</option><option>Fontanería</option><option>Climatización</option><option>Reformas</option><option>Mantenimiento</option><option>Otro</option></select></div>
+<div class="field"><label for="qproperty">Tipo de inmueble</label><select id="qproperty" name="inmueble"><option>Vivienda</option><option>Local comercial</option><option>Oficina</option><option>Comunidad</option><option>Otro</option></select></div>
+<div class="field full"><label for="qarea">Municipio / zona</label><input id="qarea" name="zona" placeholder="¿Dónde sería el trabajo?"></div>
+<div class="field full"><label for="qdesc">Cuéntanos el trabajo *</label><textarea id="qdesc" name="descripcion" required placeholder="Ej. renovar un cuadro eléctrico, reformar un baño, instalar aire acondicionado..."></textarea></div>
+</div>
+<p class="form-note">Esta es una demo comercial: <strong>el formulario no envía ni guarda datos</strong>. La versión final se configuraría con los canales del negocio.</p>
+<button type="submit" class="submit">Simular solicitud de presupuesto ↗</button>
+<div id="formMessage" class="message" role="status" aria-live="polite">✅ Vista previa completada. En esta demo no se ha enviado ni almacenado ninguna información. En una web final, la solicitud llegaría al negocio.</div>
+</form>
+</div>
+</div>
+</section>
+<section class="business-tools">
+<div class="container tool-promo">
+<div><span class="eyebrow">Opción adicional para la empresa</span><h2>De la web al control de los trabajos.</h2><p>Además de esta web, la empresa puede disponer de <strong>TradeTools Business</strong> para organizar clientes, presupuestos PDF, órdenes de trabajo y partes del equipo. Es una herramienta aparte, no incluida automáticamente en la demo.</p></div>
+<a class="btn btn-dark" href="https://andekarivera20-cpu.github.io/tradetools-business/" target="_blank" rel="noopener noreferrer">Ver TradeTools ↗</a>
+</div>
+</section>
+</main>
+<footer><div class="container footer-row"><p><strong style="color:white">NOVA</strong> · Instalaciones & Reformas<br>Demostración de página web, no es una empresa real.</p><p>Demo creada por Andeka Rivera · <a href="https://andekarivera20-cpu.github.io/Mi-portfolio/" style="color:#e7b577">Ver portfolio ↗</a></p></div></footer>
+<span class="demo-label">DEMO COMERCIAL · NO ES UN NEGOCIO REAL</span>
+<script>
+(function(){
+const btn=document.getElementById("menuButton"), mobile=document.getElementById("mobileMenu");
+btn.addEventListener("click",function(){const open=mobile.classList.toggle("open");btn.setAttribute("aria-expanded",String(open));btn.textContent=open?"×":"☰";btn.setAttribute("aria-label",open?"Cerrar menú":"Abrir menú")});
+mobile.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mobile.classList.remove("open");btn.setAttribute("aria-expanded","false");btn.textContent="☰"}));
+const serviceSelect=document.getElementById("qservice");
+document.querySelectorAll("[data-service]").forEach(a=>a.addEventListener("click",()=>{serviceSelect.value=a.dataset.service}));
+const filters=[...document.querySelectorAll(".filter")],projects=[...document.querySelectorAll(".project")];
+filters.forEach(button=>button.addEventListener("click",()=>{
+filters.forEach(b=>{const active=b===button;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});
+projects.forEach(p=>{p.hidden=button.dataset.filter!=="todos"&&p.dataset.category!==button.dataset.filter});
+}));
+document.getElementById("quoteForm").addEventListener("submit",function(e){e.preventDefault();if(!this.reportValidity())return;document.getElementById("formMessage").classList.add("show");this.reset()});
+})();
+</script>
+</body>
+</html>
